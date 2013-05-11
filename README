@@ -1,0 +1,23 @@
+ProgramIndexer is a version of C-tags, which finds functions within C source 
+code. Given a set of source code files, it outputs a sorted list of all 
+functions declared and called in the source files with locations. It also 
+reports on namespace collisions between functions and other objects, functions 
+called before they are prototyped, and other errors. 
+
+The program attempts to fix code errors in the input data, but the corrections 
+are not guaranteed. Any change that may affect the final result is noted with a 
+warning message.
+
+The source files must be run through the preprocessor before calling this
+program. It checks for preprocessor commands, and will issue an error and 
+reminder if it finds one. Whatever functions exist in the source file will still
+be included in the output. 
+
+Installation instructions:
+1. Download source files
+2. Compile and link. Only the standard libraries are required.
+
+Execution instructions.
+1. Preprocess each source file to analyze with gcc -E [filename].c > [filename].i 
+2. Invoke with the names of the .i files, seperated by spaces. Missing source
+files will cause an error to be issued, but are otherwise ignored.
